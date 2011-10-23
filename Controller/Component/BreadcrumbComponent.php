@@ -12,7 +12,11 @@ class BreadcrumbComponent extends Component {
 	
 	public function add($name => null, $url => null, $options => array()) {
 		$options = array_merge($this->_defaultOptions, $options);
-		$this->_breadCrumbs[$options['key']][$name] = $url;
+		$this->_breadCrumbs[$options['key']][$name] = $ur;
+	}
+	
+	public function beforeRender($controller) {
+		$controller->set($breadcrumbs, $this->_breadCrumbs);
 	}
 	
 }
