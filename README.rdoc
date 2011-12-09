@@ -7,7 +7,7 @@ Simple Breadcrumbs utilities for CakePHP
  
 ==== Add a git submodule
 
-  git submodule add git@github.com:dalpo/acts_as_esagon.git app/Plugin/CakeBreadcrumbs
+  git submodule add git@github.com:dalpo/CakeBreadcrumbs.git app/Plugin/CakeBreadcrumbs
   git submodule init && git submodule update
 
 ==== Bootstrap
