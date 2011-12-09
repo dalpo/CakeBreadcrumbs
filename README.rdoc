@@ -10,7 +10,7 @@ Simple Breadcrumbs utilities for CakePHP
   git submodule add git@github.com:dalpo/CakeBreadcrumbs.git app/Plugin/CakeBreadcrumbs
   git submodule init && git submodule update
 
-==== Bootstrap
+==== /app/config/bootstrap.php
 
 Add this to load correctly the plugin
 
