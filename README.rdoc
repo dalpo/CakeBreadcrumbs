@@ -1,1 +1,60 @@
 = CakePHP Breadcrumbs
+
+Simple Breadcrumbs utilities for CakePHP
+
+
+== Installation:
+ 
+==== Add a git submodule
+
+  git submodule add git@github.com:dalpo/acts_as_esagon.git app/Plugin/CakeBreadcrumbs
+  git submodule init && git submodule update
+
+==== Bootstrap
+
+Add this to load correctly the plugin
+
+  CakePlugin::load('CakeBreadcrumbs');
+
+==== Setup AppController
+
+  class AppController extends Controller {
+  
+    public $components = array('Session', 'CakeBreadcrumbs.Breadcrumb');
+    public $helpers = array('Html', 'Form', 'Session', 'CakeBreadcrumbs.Breadcrumb');
+
+    ...
+  
+  }
+
+== Usage
+
+==== Controller
+
+  class MySimpleController extends AppController {
+  
+    public function beforeFilter() {
+      parent::beforeFilter();
+      $this->Breadcrumb->add('Home', '/home/path');
+    }
+
+    public function index() {
+      $this->Breadcrumb->add('Index', '/controller/index/path');
+      ...
+    }
+  
+  }
+
+==== Views or Layout
+
+  <?php echo $this->Breadcrumb->render(); ?>
+
+
+== Capistrano
+
+If you use submodules with capistrano you should put this conf under deploy.rb
+  
+  set :git_enable_submodules, 1
+
+
+
