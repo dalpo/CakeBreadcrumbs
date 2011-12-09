@@ -1,14 +1,20 @@
 <?php
 
-class ToolbarHelper extends AppHelper {
+class BreadcrumbHelper extends AppHelper {
 
 	protected $_defaultOptions = array(
-		'key' => 'default'
+		'plugin' => 'CakeBreadcrumbs'
+	);
+
+	protected $_defaultData = array(
+		'scope' => 'default'
 	);
 	
-	public function render(options => array()) {
-		$View =& ClassRegistry::getObject('view');
-		$View->element("breadcrumbs", array('plugin' => 'CakeBreadcrumbs'));
+	public function render($data = array(), $options = array()) {
+		$options = array_merge($this->_defaultOptions, $options);
+		$data = array_merge($this->_defaultData, $data);
+
+		return $this->_View->element("breadcrumbs", $data, $options);
 	}
 	
 }
